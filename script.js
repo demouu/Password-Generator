@@ -1,6 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var howManyChars = 0;
+var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", ",", ".", "?", "-", "+", "=", "<", ">"]
+var lowerCaseLetter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var upperCaseLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var specialNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -21,11 +25,12 @@ if (isNaN(getPasswordLength)) {
   getInfo();
 }
 // Get Password Special Characters, Confirm
+var askSpecialChar = confirm("Do you want special characters in your password?");
 // Get Password UpperCase Characters, Confirm
 // Get Password LowerCase Characters, Confirm
 // Get Password Numbers, Confirm
 console.log(getPasswordLength);
 }
-getInfo()
+getInfo();
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
