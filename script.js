@@ -46,20 +46,19 @@ function generatePassword(){
   console.log(info);
   var allChars = [];
   if (info.special === true) {
-    allChars.concat(specialCharacters)
+    allChars = allChars.concat(specialCharacters)
   }
   if (info.lower === true) {
-    allChars.concat(lowerCaseLetter)
+    allChars = allChars.concat(lowerCaseLetter)
   }
   if (info.upper === true) {
-    allChars.concat(askUpperCase)
+    allChars = allChars.concat(upperCaseLetter)
   }
   if (info.numeral === true) {
-    allChars.concat(specialNumbers)
+    allChars = allChars.concat(specialNumbers)
   }
   console.log(allChars);
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
