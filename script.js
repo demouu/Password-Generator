@@ -34,13 +34,19 @@ function getInfo() {
   var askNum = confirm("Do you want numbers in your password?");
   // Creating Object to Grab Inside My generatePassword Function
   var allChars = {
-    length: getPasswordLength,
+    length1: getPasswordLength,
     special: askSpecialChar,
     lower: askLowerCase,
     upper: askUpperCase,
     numeral: askNum,
   }
-  return allChars;
+  if (!askNum && !askSpecialChar && !askLowerCase && !askUpperCase) {
+    alert("Please choose at least one option.")
+    return;
+  } else {
+    return allChars;
+  }
+
 }
 // Creating Function that Grabs Info from getInfo Function
 function generatePassword() {
@@ -48,6 +54,7 @@ function generatePassword() {
   console.log(info);
   // Assigning Empty Array for All Characters
   var allChars = [];
+  // Grabbing info from allChars Object
   if (info.special === true) {
     allChars = allChars.concat(specialCharacters)
   }
@@ -61,7 +68,14 @@ function generatePassword() {
     allChars = allChars.concat(specialNumbers)
   }
   console.log(allChars);
-}
 
+  // Creating Loop Over Length and Randomizing Password
+  var password = "";
+  for (i = 0; i < info.length1; i++) {
+    var index = Math.floor(Math.random() * allChars.length)
+    password = password + allChars[index]
+  }
+  return password;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
