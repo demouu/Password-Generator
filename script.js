@@ -19,6 +19,7 @@ function getInfo() {
   if (isNaN(getPasswordLength)) {
     alert("Try Again, Enter a Number.");
     return;
+    //
   } else if (getPasswordLength < 8 || getPasswordLength > 128) {
     alert("Try Again, Enter a Number Between 8 and 128.");
     return;
@@ -31,6 +32,7 @@ function getInfo() {
   var askLowerCase = confirm("Do you want Lower Case characters?");
   // Get Password Numbers, Confirm
   var askNum = confirm("Do you want numbers in your password?");
+  // Creating Object to Grab Inside My generatePassword Function
   var allChars = {
     length: getPasswordLength,
     special: askSpecialChar,
@@ -40,10 +42,11 @@ function getInfo() {
   }
   return allChars;
 }
-
-function generatePassword(){
+// Creating Function that Grabs Info from getInfo Function
+function generatePassword() {
   var info = getInfo();
   console.log(info);
+  // Assigning Empty Array for All Characters
   var allChars = [];
   if (info.special === true) {
     allChars = allChars.concat(specialCharacters)
