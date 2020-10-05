@@ -46,7 +46,6 @@ function getInfo() {
   } else {
     return allChars;
   }
-
 }
 // Creating Function that Grabs Info from getInfo Function
 function generatePassword() {
@@ -71,10 +70,12 @@ function generatePassword() {
 
   // Creating Loop Over Length and Randomizing Password
   var password = "";
-  for (i = 0; i < info.length1; i++) {
+
+  for (var i = 0; i < info.length1; i++) {
     var index = Math.floor(Math.random() * allChars.length)
     password = password + allChars[index]
   }
+
   return password;
 }
 // Add event listener to generate button
